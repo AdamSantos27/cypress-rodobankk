@@ -23,3 +23,10 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+const Login = require('../').ELEMENTS
+
+Cypress.Commands.add('login', (email, password) => {   
+    cy.get(Login.campoEmail).type(email)
+    cy.get(Login.campoSenha).type(password)
+    cy.get(Login.botaoLogin).click()
+ })
